@@ -1,15 +1,19 @@
 // import 'package:flutter/gestures.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:meet_sync/constants/constant_color.dart';
 import 'package:meet_sync/constants/constant_text_style.dart';
 import 'package:meet_sync/routes/route_name.dart';
+import 'package:meet_sync/widgets/button_group.dart';
 import 'package:meet_sync/widgets/text_form_field.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,9 +49,9 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 25),
-                      TextFormFieldWidget(hintText: "Username/Email"),
+                      TextFormFieldWidget(hintText: "Username/Email",),
                       const SizedBox(height: 21),
-                      TextFormFieldWidget(hintText: "Password"),
+                      TextFormFieldWidget(hintText: "Password", isPassword: true),
                       const SizedBox(height: 5),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -63,60 +67,7 @@ class LoginPage extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 56),
-                      SizedBox(
-                        width: double.infinity,
-                        height: 62,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Login',
-                            style: ConstantTextStyle.stylePoppins(
-                              fontSize: 18,
-                              color: yellow,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: btnPurple,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-          
-                        Row(
-          
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            RichText(
-                              text: 
-                              TextSpan(
-                                text: 'Don\'t have an Account? ',
-                                style: ConstantTextStyle.stylePoppins(
-                                  fontSize: 12,
-                                  color: grey,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                children: [
-                                  TextSpan(
-                                    text: ' Register',
-                                    recognizer: TapGestureRecognizer()
-                                      ..onTap = () {
-                                        Get.toNamed(RouteName.register);
-                                      },
-                                    style: ConstantTextStyle.stylePoppins(
-                                      fontSize: 12,
-                                      color: purple,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
+                      ButtonGroup(buttonText: "Login", textSpan1: "Need an Account?", textSpan2: "Register", routeName: RouteName.register,),
                     ],
                   ),
                 ),
