@@ -82,16 +82,19 @@ class _RegisterPageState extends State<RegisterPage> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     LabelText(label: "Name"),
-                                    TextFormFieldWidget(hintText: "Enter Your Name", paddingVertical: 15, isDefault: false),
-                                    const SizedBox(height: 15),
+                                    TextFormFieldWidget(hintText: "Enter Your Name", isDefault: false, paddingVertical: 10, paddingHorizontal: 20, color: 'white', ),
+                                    const SizedBox(height: 5
+                                    ),
                                     LabelText(label: "Email"),
-                                    TextFormFieldWidget(hintText: "Enter Your Email", paddingVertical: 15, isDefault: false),
-                                    const SizedBox(height: 15),
+                                    TextFormFieldWidget(hintText: "Enter Your Email",isDefault: false, paddingVertical: 10, paddingHorizontal: 20,color: 'white', icon: 'email',),
+                                    const SizedBox(height: 5
+                                    ),
                                     LabelText(label: "Password"),
-                                    TextFormFieldWidget(hintText: "Enter Your Password", paddingVertical: 15, isDefault: false, isPassword: true),
-                                    const SizedBox(height: 15),
+                                    TextFormFieldWidget(hintText: "Enter Your Password",isDefault: false, paddingVertical: 10, paddingHorizontal: 20, isPassword: true,color: 'white', icon: 'password'),
+                                    const SizedBox(height: 5
+                                    ),
                                     LabelText(label: "Confirm Password"),
-                                    TextFormFieldWidget(hintText: "Enter Your Password", paddingVertical: 15, isDefault: false, isPassword: true),
+                                    TextFormFieldWidget(hintText: "Enter Your Confirm Password",isDefault: false, paddingVertical: 10, paddingHorizontal: 20, isPassword: true,color: 'white', icon: 'password'),
                                     const SizedBox(height: 24),
                                     ButtonGroup(buttonText: "Register", textSpan1: "Already have an account?", textSpan2: "Log in", routeName: RouteName.login, isGetOff: true),
                                   ],

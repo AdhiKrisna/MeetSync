@@ -49,9 +49,9 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       const SizedBox(height: 25),
-                      TextFormFieldWidget(hintText: "Username/Email",),
+                      TextFormFieldWidget(hintText: "Username/Email", isIcon: false,),
                       const SizedBox(height: 21),
-                      TextFormFieldWidget(hintText: "Password", isPassword: true),
+                      TextFormFieldWidget(hintText: "Password", isPassword: true, isIcon: false,),
                       const SizedBox(height: 5),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -66,8 +66,9 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 56),
+                      const SizedBox(height: 46),
                       ButtonGroup(buttonText: "Login", textSpan1: "Need an Account?", textSpan2: "Register", routeName: RouteName.register,),
+                      
                     ],
                   ),
                 ),
