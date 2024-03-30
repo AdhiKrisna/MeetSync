@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:meet_sync/constants/constant_color.dart';
 import 'package:meet_sync/constants/constant_text_style.dart';
 // import 'package:meet_sync/routes/route_name.dart';
@@ -30,17 +31,17 @@ class ChooseModel extends StatelessWidget {
                         children: [
                           IconButton(
                             onPressed: () =>
-                              Navigator.pop(context),
+                              Get.back(),
                                 icon: Icon(Icons.arrow_back_ios_new_sharp, color: purple, size: 18,)
                           ),
-                          Expanded(
+                            Expanded(
                                   child: Padding(
                                     padding: const EdgeInsets.only(top: 15),
                                     child: Image.asset(
                                       'assets/images/avatar.png',
                                       width: 100,
                                       height: 100,
-                                                                              ),
+                                    ),
                                   ),
                           ),
                           SizedBox(

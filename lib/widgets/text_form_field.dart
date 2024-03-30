@@ -6,7 +6,6 @@ class TextFormFieldWidget extends StatelessWidget {
   final String hintText, color, icon;
   final double? paddingVertical, paddingHorizontal;
   final bool isPassword, isDefault, isIcon;
-
    TextFormFieldWidget({
       Key? key, 
       required this.hintText, 
@@ -16,7 +15,7 @@ class TextFormFieldWidget extends StatelessWidget {
       this.isDefault = true,
       this.isIcon = true,
       this.color = 'transparent',
-      this.icon = 'person'
+      this.icon = 'person',
   }) : super(key: key);
   final authC = Get.put(AuthController());
 
@@ -27,6 +26,7 @@ class TextFormFieldWidget extends StatelessWidget {
     return Center(
       child: Obx(
         () =>TextFormField(
+            
               obscureText: authC.getIsObscure.isTrue && isPassword ? true : false,
               decoration: InputDecoration(
                   prefixIcon: isIcon == true
