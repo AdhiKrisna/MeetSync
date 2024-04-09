@@ -4,7 +4,7 @@ import 'package:meet_sync/routes/route_name.dart';
 import 'routes/route_page.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
+  // WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 

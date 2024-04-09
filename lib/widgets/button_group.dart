@@ -12,8 +12,7 @@ class ButtonGroup extends StatelessWidget {
     required this.buttonText,
     required this.textSpan1,
     required this.textSpan2,
-    this.isGetOff =
-        false, // sekalian jadi button isLogin, kalau isGetOff true, maka button isLogin
+    this.isGetOff = false,  // sekalian jadi button isLogin, kalau isGetOff true, maka button isLogin
     required this.routeText,
     required this.routeButton,
   });
