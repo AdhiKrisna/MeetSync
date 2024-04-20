@@ -11,6 +11,8 @@ class RegisterMeet extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           TopSection(),
+          const SizedBox(height: 20),
+          
         ],
       )
     );

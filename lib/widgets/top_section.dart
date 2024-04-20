@@ -6,59 +6,55 @@ class TopSection extends StatelessWidget {
   const TopSection({super.key});
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          padding: EdgeInsets.only(top: 40),
-          height: 157,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: pink,
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(30),
-              bottomRight: Radius.circular(30),
+    return Container(
+      padding: EdgeInsets.only(top: 40),
+      height: 157,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: pink,
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(30),
+          bottomRight: Radius.circular(30),
+        ),
+      ),
+      child: Row(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Hello,',
+                  style: ConstantTextStyle.stylePoppins(
+                    color: orange,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  'What is your schedule for today?',
+                  style: ConstantTextStyle.stylePoppins(
+                    color: brown,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
           ),
-          child: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Hello,',
-                      style: ConstantTextStyle.stylePoppins(
-                        color: orange,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      'What is your schedule for today?',
-                      style: ConstantTextStyle.stylePoppins(
-                        color: brown,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Spacer(),
-              Padding(
-                padding: const EdgeInsets.only(right: 20),
-                child: CircleAvatar(
-                  radius: 30,
-                  backgroundImage: AssetImage('assets/images/avatar.png'),
-                ),
-              ),
-            ],
+          Spacer(),
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: CircleAvatar(
+              radius: 30,
+              backgroundImage: AssetImage('assets/images/avatar.png'),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:meet_sync/binding/auth_binding.dart';
 import 'package:meet_sync/features/pages/login.dart';
 import 'package:meet_sync/features/pages/register.dart';
 import 'package:meet_sync/features/student/binding/student_binding.dart';
+import 'package:meet_sync/features/student/pages/check_today_meeting.dart';
 import 'package:meet_sync/features/student/screen/landing_screen.dart';
 import 'route_name.dart';
 
@@ -23,6 +24,13 @@ class RoutePages {
       page: () => LandingScreen(),
       binding: StudentBinding(),
     ),
+    GetPage(
+      name: RouteName.checkTodayMeeting,
+      page: () => CheckTodayMeeting(),
+      binding: StudentBinding(),
+    ),
+
+    
   ];
 
   // List<GetPage<dynamic>> get getRoutes => routes;

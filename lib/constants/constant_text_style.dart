@@ -18,5 +18,4 @@ class ConstantTextStyle {
         decoration: decoration,
       );
     }
-
 }

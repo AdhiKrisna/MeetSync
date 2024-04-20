@@ -5,7 +5,7 @@ import 'package:meet_sync/constants/constant_text_style.dart';
 import 'package:meet_sync/controller/role_controller.dart';
 import 'package:meet_sync/routes/route_name.dart';
 import 'package:meet_sync/widgets/button_group.dart';
-import 'package:meet_sync/widgets/label_widgets.dart';
+import 'package:meet_sync/widgets/label_widget.dart';
 import 'package:meet_sync/widgets/text_form_field.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -42,8 +42,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       Expanded(
                         child: Container(
                           height: 1,
-                          color: Colors
-                              .black, // Ganti warna dengan warna garis yang diinginkan
+                          color: Colors.black,
                         ),
                       ),
                     ],

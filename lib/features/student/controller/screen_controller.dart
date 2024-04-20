@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:meet_sync/features/student/pages/home.dart';
+import 'package:meet_sync/features/student/pages/today.dart';
 import 'package:meet_sync/features/student/pages/profile.dart';
 import 'package:meet_sync/features/student/pages/register_meet.dart';
 
@@ -18,7 +18,7 @@ class ScreenController extends GetxController {
       label: 'Today',
     ),
     BottomNavigationBarItem(
-      icon: Image.asset('assets/images/icons/Schedule.png'),
+      icon: Image.asset('assets/icons/Schedule.png'),
       label: 'Meet Sync',
     ),
     BottomNavigationBarItem(
@@ -26,10 +26,18 @@ class ScreenController extends GetxController {
       label: 'Profile',
     ),
   ];
+  // TodayController todayC = Get.find();
+  List<Widget>  pages = [];
 
-  final List<Widget> pages = [
-    StudentHome(),
-    RegisterMeet(),
-    StudentProfile(),
-  ];
+  @override
+  void onInit() {
+    super.onInit();
+    // print("is check meeting from screen controller : ${todayC.isCheckMeeting.isTrue}");
+    pages = [
+      // todayC.isCheckMeeting.isTrue ? CheckTodayMeeting() : StudentToday(),
+      StudentToday(),
+      RegisterMeet(),
+      StudentProfile(),
+    ];
+  }
 }

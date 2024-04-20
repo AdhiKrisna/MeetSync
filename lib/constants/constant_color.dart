@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 const purple = Color(0xff392AAB);
 const btnPurple = Color(0xff211C6A);
 const yellow = Color(0xffEFF396);
+const yellowTextButton = Color(0xffFFCE55);
 const grey = Color(0xffABABAB);
 const lightGrey = Color(0xFF828282);
 const darkGrey = Color(0xFF4F4F4F);
