@@ -79,7 +79,6 @@ class _LoginPageState extends State<LoginPage> {
                       textSpan1: "Need an Account?",
                       textSpan2: "Register",
                       routeText: RouteName.register,
-                      routeButton: RouteName.homeStudent,
                     ),
                   ],
                 ),

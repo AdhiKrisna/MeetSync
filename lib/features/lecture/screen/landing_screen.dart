@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/get_instance.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:meet_sync/constants/constant_color.dart';
-import 'package:meet_sync/features/student/controller/screen_controller.dart';
+import 'package:meet_sync/features/lecture/controller/screen_controller.dart';
 
-class StudentLandingScreen extends StatelessWidget {
-    StudentLandingScreen({
+class LecturerLandingScreen extends StatelessWidget {
+    LecturerLandingScreen({
     super.key,
   });
-  final StudentScreenController screenC = Get.find(); //FUNGSINYA BINDING AGAR BISA .find()
+  final LecturerScreenController screenC = Get.find(); //FUNGSINYA BINDING AGAR BISA .find()
   
   @override
   Widget build(BuildContext context) {

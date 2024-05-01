@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meet_sync/constants/constant_color.dart';
 import 'package:meet_sync/constants/constant_text_style.dart';
+import 'package:meet_sync/widgets/choose_model.dart';
 
 class ButtonGroup extends StatelessWidget {
-  final String buttonText, textSpan1, textSpan2, routeText, routeButton;
+  final String buttonText, textSpan1, textSpan2, routeText;
+  //final String routeText, routeButton;
   final bool isGetOff;
   const ButtonGroup({
     super.key,
@@ -14,7 +16,7 @@ class ButtonGroup extends StatelessWidget {
     required this.textSpan2,
     this.isGetOff = false,  // sekalian jadi button isLogin, kalau isGetOff true, maka button isLogin
     required this.routeText,
-    required this.routeButton,
+    //required this.routeButton,
   });
 
   @override
@@ -26,7 +28,7 @@ class ButtonGroup extends StatelessWidget {
           height: 62,
           child: ElevatedButton(
             onPressed: () {
-              Get.offNamed(routeButton);
+              showDialog(context: context, builder: (BuildContext context) => ChooseModel());
             },
             child: Text(
               buttonText,

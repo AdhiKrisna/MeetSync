@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:meet_sync/features/student/pages/student_schedule.dart';
-import 'package:meet_sync/features/student/pages/profile.dart';
-import 'package:meet_sync/features/student/pages/register_meet.dart';
+import 'package:meet_sync/features/lecture/pages/create_meet.dart';
+import 'package:meet_sync/features/lecture/pages/lecturer_schedule.dart';
+import 'package:meet_sync/features/lecture/pages/profile.dart';
 
-class StudentScreenController extends GetxController {
+class LecturerScreenController extends GetxController {
   final RxInt _indexBottomNavigationBar = 0.obs;
   // final RxBool _isCheckMeeting = false.obs;
 
@@ -23,8 +23,8 @@ class StudentScreenController extends GetxController {
       label: 'Schedule',
     ),
     BottomNavigationBarItem(
-      icon: Image.asset('assets/icons/Schedule.png'),
-      label: 'Search Meeting',
+      icon: Image.asset('assets/icons/Calender_Plus.png'),
+      label: 'Create Meeting',
     ),
     BottomNavigationBarItem(
       icon: Icon(Icons.person),
@@ -39,9 +39,9 @@ class StudentScreenController extends GetxController {
     // print('student landing screen status ${isCheckMeeting.value}');
     pages = [
       // isCheckMeeting.isFalse ? StudentToday() : CheckTodayMeeting(),
-      StudentSchedule(),
-      RegisterMeet(),
-      StudentProfile(),
+      LecturerSchedule(),
+      CreateMeet(),
+      LecturerProfile(),
     ];
   }
 }

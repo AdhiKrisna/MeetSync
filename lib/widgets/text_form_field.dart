@@ -1,6 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide DatePickerTheme;
 import 'package:get/get.dart';
+import 'package:meet_sync/constants/constant_color.dart';
+import 'package:meet_sync/constants/constant_text_style.dart';
 import 'package:meet_sync/controller/auth_controller.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 
 class TextFormFieldWidget extends StatelessWidget {
   final String hintText, color, icon;
@@ -70,6 +73,77 @@ class TextFormFieldWidget extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class TextFormFieldCreateMeeting extends StatelessWidget {
+  final String hintText;
+  final int maxLines;
+  const TextFormFieldCreateMeeting({
+    super.key,
+    required this.hintText,
+    this.maxLines = 1,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      maxLines: maxLines,
+      style: ConstantTextStyle.stylePoppins(
+        color: lightGrey,
+        fontSize: 16,
+      ),
+      decoration: InputDecoration(
+        hintText: hintText,
+        hintStyle: ConstantTextStyle.stylePoppins(
+          color: lightGrey,
+          fontSize: 16,
+        ),
+        fillColor: grey,
+      ),
+    );
+  }
+}
+
+class TextFormFieldDate extends StatelessWidget {
+  final String hintText;
+  const TextFormFieldDate({
+    super.key,
+    required this.hintText,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      readOnly: true,
+      onTap: () {
+        // Ketika tombol ditekan, tampilkan date picker
+        DatePicker.showDatePicker(
+          context,
+          showTitleActions: true,
+          onChanged: (date) {
+            // Di sini Anda bisa melakukan sesuatu dengan tanggal yang dipilih jika perlu
+          },
+          onConfirm: (date) {
+            // Di sini Anda bisa melakukan sesuatu dengan tanggal yang dipilih jika perlu
+          },
+          currentTime: DateTime.now(), // Waktu saat ini sebagai waktu default
+          locale: LocaleType.en, // Lokalisasi, bisa disesuaikan
+        );
+      },
+      style: ConstantTextStyle.stylePoppins(
+        color: lightGrey,
+        fontSize: 16,
+      ),
+      decoration: InputDecoration(
+        hintText: hintText,
+        hintStyle: ConstantTextStyle.stylePoppins(
+          color: lightGrey,
+          fontSize: 16,
+        ),
+        fillColor: grey,
       ),
     );
   }

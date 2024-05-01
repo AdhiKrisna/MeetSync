@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:meet_sync/constants/constant_color.dart';
 import 'package:meet_sync/constants/constant_text_style.dart';
 import 'package:meet_sync/controller/role_controller.dart';
@@ -29,7 +31,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Register',
+                        'Register Meet Sync',
                         style: ConstantTextStyle.stylePoppins(
                           fontSize: 24,
                           color: Color.fromARGB(255, 0, 0, 0),
@@ -81,111 +83,112 @@ class _RegisterPageState extends State<RegisterPage> {
                             Container(
                               padding: EdgeInsets.symmetric(
                                   vertical: 24, horizontal: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  LabelText(label: "Name"),
-                                  TextFormFieldWidget(
-                                    hintText: "Enter Your Name",
-                                    isDefault: false,
-                                    paddingVertical: 10,
-                                    paddingHorizontal: 20,
-                                    color: 'white',
-                                  ),
-                                  const SizedBox(height: 5),
-                                  LabelText(label: "Email"),
-                                  TextFormFieldWidget(
-                                    hintText: "Enter Your Email",
-                                    isDefault: false,
-                                    paddingVertical: 10,
-                                    paddingHorizontal: 20,
-                                    color: 'white',
-                                    icon: 'email',
-                                  ),
-                                  const SizedBox(height: 5),
-                                  LabelText(label: "Password"),
-                                  TextFormFieldWidget(
-                                      hintText: "Enter Your Password",
+                              child: Obx(()=>Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    LabelText(label: "Name"),
+                                    TextFormFieldWidget(
+                                      hintText: "Enter Your Name",
                                       isDefault: false,
                                       paddingVertical: 10,
                                       paddingHorizontal: 20,
-                                      isPassword: true,
                                       color: 'white',
-                                      icon: 'password'),
-                                  const SizedBox(height: 5),
-                                  LabelText(label: "Confirm Password"),
-                                  TextFormFieldWidget(
-                                    hintText: "Enter Your Confirm Password",
-                                    isDefault: false,
-                                    paddingVertical: 10,
-                                    paddingHorizontal: 20,
-                                    isPassword: true,
-                                    color: 'white',
-                                    icon: 'password',
-                                  ),
-                                  const SizedBox(height: 5),
-                                  LabelText(label: "Role"),
-                                  DropdownButtonFormField(
-                                    iconSize: 0,
-                                    decoration: InputDecoration(
-                                      prefixIcon: Icon(
-                                        Icons.person_pin_outlined,
-                                        size: 26,
-                                        color: Color.fromRGBO(0, 0, 0, 0.20),
+                                    ),
+                                    const SizedBox(height: 5),
+                                    LabelText(label: "Email"),
+                                    TextFormFieldWidget(
+                                      hintText: "Enter Your Email",
+                                      isDefault: false,
+                                      paddingVertical: 10,
+                                      paddingHorizontal: 20,
+                                      color: 'white',
+                                      icon: 'email',
+                                    ),
+                                    const SizedBox(height: 5),
+                                    LabelText(label: "Password"),
+                                    TextFormFieldWidget(
+                                          hintText: "Enter Your Password",
+                                          isDefault: false,
+                                          paddingVertical: 10,
+                                          paddingHorizontal: 20,
+                                          isPassword: true,
+                                          color: 'white',
+                                          icon: 'password'),
+                                    const SizedBox(height: 5),
+                                    LabelText(label: "Confirm Password"),
+                                    TextFormFieldWidget(
+                                        hintText: "Enter Your Confirm Password",
+                                        isDefault: false,
+                                        paddingVertical: 10,
+                                        paddingHorizontal: 20,
+                                        isPassword: true,
+                                        color: 'white',
+                                        icon: 'password',
                                       ),
-                                      isDense: true,
-                                      contentPadding: EdgeInsets.symmetric(
-                                          vertical: 12, horizontal: 20),
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.circular(15),
-                                        borderSide: BorderSide(
-                                          color: Color(0xFFF8F8F8),
-                                          width: double.infinity,
+                                    const SizedBox(height: 5),
+                                    LabelText(label: "Role"),
+                                    DropdownButtonFormField(
+                                      iconSize: 0,
+                                      decoration: InputDecoration(
+                                        prefixIcon: Icon(
+                                          Icons.person_pin_outlined,
+                                          size: 26,
+                                          color: Color.fromRGBO(0, 0, 0, 0.20),
                                         ),
-                                      ),
-                                      filled: true,
-                                      fillColor: Color(0xFFF8F8F8),
-                                    ),
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: lightGrey,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                    borderRadius: BorderRadius.circular(15),
-                                    hint: Text('Select Role'),
-                                    dropdownColor: Colors.white,
-                                    value: Get.put<RoleController>(
-                                            RoleController())
-                                        .selectedRole
-                                        .value,
-                                    items: Get.put<RoleController>(
-                                            RoleController())
-                                        .roles
-                                        .map(
-                                          (String value) =>
-                                              DropdownMenuItem<String>(
-                                            value: value,
-                                            child: Text(value),
+                                        isDense: true,
+                                        contentPadding: EdgeInsets.symmetric(
+                                            vertical: 12, horizontal: 20),
+                                        border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(15),
+                                          borderSide: BorderSide(
+                                            color: Color(0xFFF8F8F8),
+                                            width: double.infinity,
                                           ),
-                                        )
-                                        .toList(),
-                                    onChanged: (value) {
-                                      if (value != null)
-                                        Get.put<RoleController>(
-                                                RoleController())
-                                            .updateSelectedRole(value);
-                                    },
-                                  ),
-                                  const SizedBox(height: 24),
-                                  ButtonGroup(
-                                    buttonText: "Register",
-                                    textSpan1: "Already have an account?",
-                                    textSpan2: "Log in",
-                                    routeText: RouteName.login,
-                                    routeButton: RouteName.login,
-                                    isGetOff: true,
-                                  ),
-                                ],
+                                        ),
+                                        filled: true,
+                                        fillColor: Color(0xFFF8F8F8),
+                                      ),
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: lightGrey,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      borderRadius: BorderRadius.circular(15),
+                                      hint: Text('Select Role'),
+                                      dropdownColor: Colors.white,
+                                      value: Get.put<RoleController>(
+                                              RoleController())
+                                          .selectedRole
+                                          .value,
+                                      items: Get.put<RoleController>(
+                                              RoleController())
+                                          .roles
+                                          .map(
+                                            (String value) =>
+                                                DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Text(value),
+                                            ),
+                                          )
+                                          .toList(),
+                                      onChanged: (value) {
+                                        if (value != null)
+                                          Get.put<RoleController>(
+                                                  RoleController())
+                                              .updateSelectedRole(value);
+                                      },
+                                    ),
+                                    const SizedBox(height: 24),
+                                    ButtonGroup(
+                                      buttonText: "Register",
+                                      textSpan1: "Already have an account?",
+                                      textSpan2: "Log in",
+                                      routeText: RouteName.login,
+                                      //routeButton: RouteName.login,
+                                      isGetOff: true,
+                                    ),
+                                  ],
+                                ),
                               ),
                             )
                           ],

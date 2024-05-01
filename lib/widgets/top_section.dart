@@ -3,7 +3,11 @@ import 'package:meet_sync/constants/constant_color.dart';
 import 'package:meet_sync/constants/constant_text_style.dart';
 
 class TopSection extends StatelessWidget {
-  const TopSection({super.key});
+  final bool radiusCircular;
+  const TopSection({
+    super.key,
+    this.radiusCircular = true,
+  });
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,8 +17,8 @@ class TopSection extends StatelessWidget {
       decoration: BoxDecoration(
         color: pink,
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(30),
-          bottomRight: Radius.circular(30),
+          bottomLeft: radiusCircular? Radius.circular(30) : Radius.circular(0),
+          bottomRight: radiusCircular? Radius.circular(30) : Radius.circular(0),
         ),
       ),
       child: Row(
@@ -50,7 +54,7 @@ class TopSection extends StatelessWidget {
             padding: const EdgeInsets.only(right: 20),
             child: CircleAvatar(
               radius: 30,
-              backgroundImage: AssetImage('assets/images/avatar.png'),
+              backgroundImage: AssetImage('assets/images/user_icon.png'),
             ),
           ),
         ],

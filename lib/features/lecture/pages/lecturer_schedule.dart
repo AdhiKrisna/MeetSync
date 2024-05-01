@@ -1,27 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:meet_sync/constants/constant_color.dart';
 import 'package:meet_sync/constants/constant_text_style.dart';
+import 'package:meet_sync/features/lecture/widgets/button.dart';
+import 'package:meet_sync/features/lecture/widgets/lecturer_schedule_card.dart';
 import 'package:meet_sync/routes/route_name.dart';
-import 'package:meet_sync/features/student/widgets/button.dart';
 import 'package:meet_sync/widgets/calender.dart';
-import 'package:meet_sync/features/student/widgets/lecturer_card.dart';
-import 'package:meet_sync/widgets/search_dosen_widget.dart';
 import 'package:meet_sync/widgets/top_section.dart';
 
-class RegisterMeet extends StatefulWidget {
-  const RegisterMeet({super.key});
+class LecturerSchedule extends StatefulWidget {
+  const LecturerSchedule({super.key});
 
   @override
-  State<RegisterMeet> createState() => _RegisterMeetState();
+  State<LecturerSchedule> createState() => _LecturerScheduleState();
 }
 
-class _RegisterMeetState extends State<RegisterMeet> {
+class _LecturerScheduleState extends State<LecturerSchedule> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TopSection(radiusCircular: false),
           Container(
@@ -40,7 +39,7 @@ class _RegisterMeetState extends State<RegisterMeet> {
                 const SizedBox(height: 10),
                 Button(
                   text: "Select",
-                  routeButton: RouteName.homeStudent,
+                  routeButton: RouteName.homeLecturer,
                   width: 130,
                 ),
                 const SizedBox(height: 15),
@@ -53,18 +52,19 @@ class _RegisterMeetState extends State<RegisterMeet> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SearchFieldDosen(),
-                const SizedBox(height: 17),
                 Text(
-                  "Meeting Sync",
+                  "Schedule",
                   style: ConstantTextStyle.stylePoppins(
                     color: orange,
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 13),
-                RegisterLecturerCard(),
+                const SizedBox(height: 15),
+                for (int i = 0; i < 3; i++) ...[
+                  ScheduleLecturerCard(),
+                  const SizedBox(height: 10),
+                ]
               ],
             ),
           ),
