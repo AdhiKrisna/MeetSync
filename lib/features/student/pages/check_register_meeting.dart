@@ -190,9 +190,10 @@ class CheckRegisterMeeting extends StatelessWidget {
                         ),
                         const SizedBox(height: 15),
                         Obx(() => SelectTimeButton(
-                            routeButton: RouteName.homeStudent,
-                            selectedIndex:
-                                buttonController.selectedIndex.value)),
+                              routeButton: RouteName.homeStudent,
+                              selectedIndex:
+                                  buttonController.selectedIndex.value,
+                            )),
                         const SizedBox(height: 15),
                       ],
                     ),

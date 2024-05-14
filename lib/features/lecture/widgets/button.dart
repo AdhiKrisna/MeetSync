@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:meet_sync/constants/constant_color.dart';
 import 'package:meet_sync/constants/constant_text_style.dart';
 import 'package:meet_sync/features/lecture/controller/screen_controller.dart';
-import 'package:meet_sync/features/student/controller/time_button_controller.dart';
 
 class Button extends StatelessWidget {
   final String text, textColor, routeButton;
@@ -18,13 +17,26 @@ class Button extends StatelessWidget {
   });
   final LecturerScreenController screenC = Get.find();
   @override
-  
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-          // if(screenC.isCheckMeeting.isFalse) screenC.setIsMeeting();
-          // print("is check meeting from button : ${screenC.isCheckMeeting.isTrue}");
-          routeButton == "back" ? Get.back() : Get.toNamed(routeButton);
+        // if(screenC.isCheckMeeting.isFalse) screenC.setIsMeeting();
+        // print("is check meeting from button : ${screenC.isCheckMeeting.isTrue}");
+        final currentIndex = screenC.indexBottomNavigationBar.value;
+        if (routeButton == "back")
+          Get.back();
+        else if (currentIndex != 0) {
+          if (text == "Create Meeting") {
+            screenC.changeIndex(0);
+            Get.offNamed(routeButton);
+          } else {
+            if (text == "Update Profile")
+              Get.offNamed(routeButton);
+            else
+              Get.toNamed(routeButton);
+          }
+        } else
+          Get.toNamed(routeButton);
       },
       child: Text(
         text,
@@ -44,6 +56,7 @@ class Button extends StatelessWidget {
     );
   }
 }
+
 class SelectTimeButton extends StatelessWidget {
   final String text, textColor, routeButton;
   final double width, height;
@@ -59,15 +72,14 @@ class SelectTimeButton extends StatelessWidget {
   });
   final LecturerScreenController screenC = Get.find();
   @override
-  
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-          // if(screenC.isCheckMeeting.isFalse) screenC.setIsMeeting();
-          // print("is check meeting from button : ${screenC.isCheckMeeting.isTrue}");
-          screenC.changeIndex(0);
-          print("selcted index time : $selectedIndex");
-          routeButton ==  Get.toNamed(routeButton);
+        // if(screenC.isCheckMeeting.isFalse) screenC.setIsMeeting();
+        // print("is check meeting from button : ${screenC.isCheckMeeting.isTrue}");
+        screenC.changeIndex(0);
+        print("selcted index time : $selectedIndex");
+        routeButton == Get.off(routeButton);
       },
       child: Text(
         text,
@@ -88,46 +100,46 @@ class SelectTimeButton extends StatelessWidget {
   }
 }
 
-class TimeButton extends StatelessWidget {
-  final String text;
-  final double width, height;
-  final bool selected;
-  final int index;
+// class TimeButton extends StatelessWidget {
+//   final String text;
+//   final double width, height;
+//   final bool selected;
+//   final int index;
 
-  TimeButton({
-    super.key,
-    required this.text,
-    this.width = 95,
-    this.height = 50,
-    this.selected = false,
-    this.index = 0,
+//   TimeButton({
+//     super.key,
+//     required this.text,
+//     this.width = 95,
+//     this.height = 50,
+//     this.selected = false,
+//     this.index = 0,
   
-  });
-   final TimeButtonController buttonController = Get.find();
-  @override
+//   });
+//    final TimeButtonController buttonController = Get.find();
+//   @override
   
-  Widget build(BuildContext context) {
-    return Obx(() => ElevatedButton(
-          onPressed: () {
-            buttonController.setSelectedIndex(index); 
-          },
-          child:  Text(
-              text,
-              style: ConstantTextStyle.stylePoppins(
-                fontSize: 14,
-                color: buttonController.isButtonSelected(index) ? yellow : btnPurple,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-          style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.all(5),
-            minimumSize: Size(width, height),
-            backgroundColor: buttonController.isButtonSelected(index) ? btnPurple : grey,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-          ),
-        )
-    );
-  }
-}
+//   Widget build(BuildContext context) {
+//     return Obx(() => ElevatedButton(
+//           onPressed: () {
+//             buttonController.setSelectedIndex(index); 
+//           },
+//           child:  Text(
+//               text,
+//               style: ConstantTextStyle.stylePoppins(
+//                 fontSize: 14,
+//                 color: buttonController.isButtonSelected(index) ? yellow : btnPurple,
+//                 fontWeight: FontWeight.w700,
+//               ),
+//             ),
+//           style: ElevatedButton.styleFrom(
+//             padding: EdgeInsets.all(5),
+//             minimumSize: Size(width, height),
+//             backgroundColor: buttonController.isButtonSelected(index) ? btnPurple : grey,
+//             shape: RoundedRectangleBorder(
+//               borderRadius: BorderRadius.circular(10),
+//             ),
+//           ),
+//         )
+//     );
+//   }
+// }

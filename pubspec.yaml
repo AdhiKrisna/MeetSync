@@ -36,6 +36,7 @@ dependencies:
   table_calendar: ^3.1.1
 
 dev_dependencies:
+  datetime_picker_formfield_new: ^2.1.0
   flutter_datetime_picker_plus: ^2.2.0
   flutter_lints: ^2.0.0
   flutter_test:

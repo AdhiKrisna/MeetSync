@@ -12,5 +12,6 @@ const darkGrey = Color(0xFF4F4F4F);
 const greyBlue = Color(0xffD7E1FF);
 const pink = Color(0xffE4C0E8);
 const lightPink = Color(0xffE11F65);
+const darkRed = Color(0xff8B1A10);
 const orange = Color(0xffE87A30);
 const brown = Color(0xff373737);
