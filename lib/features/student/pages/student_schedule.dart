@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meet_sync/constants/constant_color.dart';
 import 'package:meet_sync/constants/constant_text_style.dart';
+import 'package:meet_sync/features/lecture/controller/welcome_controller.dart';
 import 'package:meet_sync/features/student/widgets/lecturer_card.dart';
 import 'package:meet_sync/features/student/widgets/pinned_lecturer_widget.dart';
 import 'package:meet_sync/widgets/search_dosen_widget.dart';
@@ -8,9 +9,15 @@ import 'package:meet_sync/widgets/top_section.dart';
 
 class StudentSchedule extends StatelessWidget {
   StudentSchedule({super.key});
+  final WelcomeController welcomeController = WelcomeController();
+
+  Future<void> takeData() async {
+    await welcomeController.welcome();
+  }
 
   @override
   Widget build(BuildContext context) {
+    takeData();
     List<String> names = [
       'Atlas Riversong',
       'Jasper Moonstone',
@@ -31,7 +38,7 @@ class StudentSchedule extends StatelessWidget {
                   SearchFieldDosen(),
                   const SizedBox(height: 19),
                   Text(
-                    'Pin Lecturer',
+                    'Pinned Lecturer',
                     style: ConstantTextStyle.stylePoppins(
                       color: orange,
                       fontSize: 20,
@@ -74,4 +81,3 @@ class StudentSchedule extends StatelessWidget {
     );
   }
 }
-

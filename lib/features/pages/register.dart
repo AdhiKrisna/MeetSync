@@ -7,6 +7,7 @@ import 'package:meet_sync/routes/route_name.dart';
 import 'package:meet_sync/widgets/button_group.dart';
 import 'package:meet_sync/widgets/label_widget.dart';
 import 'package:meet_sync/widgets/text_form_field.dart';
+import 'package:meet_sync/controller/text_field_controller.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -81,7 +82,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             Container(
                               padding: EdgeInsets.symmetric(
                                   vertical: 24, horizontal: 10),
-                              child: Obx(()=>Column(
+                              child: Obx(
+                                () => Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     LabelText(label: "Name"),
@@ -105,24 +107,27 @@ class _RegisterPageState extends State<RegisterPage> {
                                     const SizedBox(height: 5),
                                     LabelText(label: "Password"),
                                     TextFormFieldWidget(
-                                          hintText: "Enter Your Password",
-                                          isDefault: false,
-                                          paddingVertical: 10,
-                                          paddingHorizontal: 20,
-                                          isPassword: true,
-                                          color: 'white',
-                                          icon: 'password'),
+                                      hintText: "Enter Your Password",
+                                      isDefault: false,
+                                      paddingVertical: 10,
+                                      paddingHorizontal: 20,
+                                      isPassword: true,
+                                      color: 'white',
+                                      icon: 'password',
+                                      passwordController: TextFieldController(),
+                                    ),
                                     const SizedBox(height: 5),
                                     LabelText(label: "Confirm Password"),
                                     TextFormFieldWidget(
-                                        hintText: "Enter Your Confirm Password",
-                                        isDefault: false,
-                                        paddingVertical: 10,
-                                        paddingHorizontal: 20,
-                                        isPassword: true,
-                                        color: 'white',
-                                        icon: 'password',
-                                      ),
+                                      hintText: "Enter Your Confirm Password",
+                                      isDefault: false,
+                                      paddingVertical: 10,
+                                      paddingHorizontal: 20,
+                                      isPassword: true,
+                                      color: 'white',
+                                      icon: 'password',
+                                      passwordController: TextFieldController(),
+                                    ),
                                     const SizedBox(height: 5),
                                     LabelText(label: "Role"),
                                     DropdownButtonFormField(
@@ -137,7 +142,8 @@ class _RegisterPageState extends State<RegisterPage> {
                                         contentPadding: EdgeInsets.symmetric(
                                             vertical: 12, horizontal: 20),
                                         border: OutlineInputBorder(
-                                          borderRadius: BorderRadius.circular(15),
+                                          borderRadius:
+                                              BorderRadius.circular(15),
                                           borderSide: BorderSide(
                                             color: Color(0xFFF8F8F8),
                                             width: double.infinity,

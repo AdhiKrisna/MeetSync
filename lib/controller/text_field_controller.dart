@@ -1,7 +1,7 @@
 
 import 'package:get/get.dart';
 
-class AuthController extends GetxController {
+class TextFieldController extends GetxController {
   final RxBool _isObscure = true.obs;
   RxBool get getIsObscure => _isObscure;
   void setIsObscure() {

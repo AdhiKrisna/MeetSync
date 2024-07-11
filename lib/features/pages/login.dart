@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:meet_sync/constants/constant_color.dart';
 import 'package:meet_sync/constants/constant_text_style.dart';
+import 'package:meet_sync/controller/text_field_controller.dart';
 import 'package:meet_sync/routes/route_name.dart';
 import 'package:meet_sync/widgets/button_group.dart';
 import 'package:meet_sync/widgets/text_form_field.dart';
@@ -14,11 +15,11 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
+  TextEditingController usernameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -52,12 +53,16 @@ class _LoginPageState extends State<LoginPage> {
                     TextFormFieldWidget(
                       hintText: "Username/Email",
                       isIcon: false,
+                      controller: usernameController,
+                      passwordController: TextFieldController(),
                     ),
                     const SizedBox(height: 21),
                     TextFormFieldWidget(
                       hintText: "Password",
                       isPassword: true,
                       isIcon: false,
+                      controller: passwordController, //ini tuh textediting controller
+                      passwordController: TextFieldController(),
                     ),
                     const SizedBox(height: 5),
                     Row(

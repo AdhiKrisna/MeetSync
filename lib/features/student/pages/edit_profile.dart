@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meet_sync/constants/constant_color.dart';
 import 'package:meet_sync/constants/constant_text_style.dart';
+import 'package:meet_sync/controller/text_field_controller.dart';
 import 'package:meet_sync/features/student/widgets/button.dart';
 import 'package:meet_sync/routes/route_name.dart';
 import 'package:meet_sync/widgets/text_form_field.dart';
@@ -186,6 +187,7 @@ class StudentEditProfile extends StatelessWidget {
                   paddingHorizontal: 20,
                   isPassword: true,
                   icon: 'password',
+                  passwordController: TextFieldController(),
                 ),
                 const SizedBox(height: 20),
                 Text(
@@ -204,6 +206,8 @@ class StudentEditProfile extends StatelessWidget {
                   paddingHorizontal: 20,
                   isPassword: true,
                   icon: 'password',
+                  passwordController: TextFieldController(),
+
                 ),
               ],
             ),

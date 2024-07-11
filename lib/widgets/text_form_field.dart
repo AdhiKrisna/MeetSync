@@ -2,7 +2,7 @@ import 'package:flutter/material.dart' hide DatePickerTheme;
 import 'package:get/get.dart';
 import 'package:meet_sync/constants/constant_color.dart';
 import 'package:meet_sync/constants/constant_text_style.dart';
-import 'package:meet_sync/controller/auth_controller.dart';
+import 'package:meet_sync/controller/text_field_controller.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:intl/intl.dart';
 
@@ -10,6 +10,8 @@ class TextFormFieldWidget extends StatelessWidget {
   final String hintText, color, icon;
   final double? paddingVertical, paddingHorizontal;
   final bool isPassword, isDefault, isIcon;
+  final TextEditingController? controller;
+  final TextFieldController? passwordController;
   TextFormFieldWidget({
     Key? key,
     required this.hintText,
@@ -20,15 +22,19 @@ class TextFormFieldWidget extends StatelessWidget {
     this.isIcon = true,
     this.color = 'transparent',
     this.icon = 'person',
+    this.controller,
+    this.passwordController,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final AuthController authC = Get.find();
+     final TextFieldController effectiveController =
+        passwordController ?? Get.find();
     return Center(
       child: Obx(
         () => TextFormField(
-          obscureText: authC.getIsObscure.isTrue && isPassword ? true : false,
+          controller: controller,
+          obscureText: effectiveController.getIsObscure.isTrue && isPassword ? true : false,
           decoration: InputDecoration(
             prefixIcon: isIcon == true
                 ? Icon(
@@ -41,9 +47,9 @@ class TextFormFieldWidget extends StatelessWidget {
                 : null,
             suffixIcon: isPassword == true
                 ? IconButton(
-                    onPressed: () => authC.setIsObscure(),
+                    onPressed: () => effectiveController.setIsObscure(),
                     icon: Icon(
-                      authC.getIsObscure.isTrue
+                      effectiveController.getIsObscure.isTrue
                           ? Icons.visibility_off
                           : Icons.visibility,
                     ),
