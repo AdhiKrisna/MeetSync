@@ -25,3 +25,6 @@ This project was built as a final team project during my involvement in the Mobi
 1. Clone the repository:
    ```bash
    git clone https://github.com/AdhiKrisna/MeetSync.git
+
+## 📸 Screenshots  
+![View Pages](assets/ss_view_meet.png)
